@@ -7,6 +7,7 @@ export default function App() {
   const [numberOne, setNumberOne] = useState<string[]>([])
   const [numberTwo, setNumberTwo] = useState<string[]>([])
   const [result, setResult] = useState<number>(0)
+  const [operator, setOperator] = useState<string>('')
 
   const handleKey = (e: React.MouseEvent<HTMLElement>) => {
 
@@ -19,14 +20,14 @@ export default function App() {
     setNumberOne([...numberOne, e.currentTarget.innerText])
   }
 
-  const addTwoArray = (a: string[], b: string[]) => {
-    return String(Number(a.join('')) + Number(b.join(''))).split('')
+  const addTwoArray = (a: string[], b: string[], operator: string) => {
+    return String(operation(Number(a.join('')), Number(b.join('')), operator)).split('')
   }
 
   const handleNumberTwo = () => {
 
     if (numberTwo.length > 0) {
-      setNumberTwo(addTwoArray(numberOne, numberTwo))
+      setNumberTwo(addTwoArray(numberOne, numberTwo, operator))
     } else if (result > 0) {
       setNumberTwo(String(result).split(''))
       setResult(0)
@@ -37,12 +38,33 @@ export default function App() {
     setNumberOne([])
   }
 
-  const addition = (a: number, b: number) => {
-    return a + b
+  const selectOperator = (e: React.MouseEvent<HTMLElement>) => {
+    setOperator(e.currentTarget.innerText)
+    handleNumberTwo()
+  }
+
+  const operation = (a: number, b: number, operator: string) => {
+    
+    switch (operator) {
+      case '-':
+       return b - a
+        break;
+      case '*':
+       return a * b
+        break;
+      case '/':
+       return b / a
+        break;
+      
+      default:
+        return a + b
+        break
+    }
+
   }
 
   const equal = () => {
-    setResult(addition(Number(numberOne.join('')), Number(numberTwo.join(''))))
+    setResult(operation(Number(numberOne.join('')), Number(numberTwo.join('')), operator))
     setNumberOne([])
     setNumberTwo([])
   }
@@ -79,15 +101,15 @@ export default function App() {
               <li onClick={handleKey} className="key">4</li>
               <li onClick={handleKey} className="key">5</li>
               <li onClick={handleKey} className="key">6</li>
-              <li onClick={handleNumberTwo} className="key">+</li>
+              <li onClick={selectOperator} className="key">+</li>
               <li onClick={handleKey} className="key">1</li>
               <li onClick={handleKey} className="key">2</li>
               <li onClick={handleKey} className="key">3</li>
-              <li className="key">-</li>
+              <li onClick={selectOperator} className="key">-</li>
               <li onClick={handleKey} className="key">.</li>
               <li onClick={handleKey} className="key">0</li>
-              <li className="key">/</li>
-              <li className="key">*</li>
+              <li onClick={selectOperator} className="key">/</li>
+              <li onClick={selectOperator} className="key">*</li>
               <li onClick={reset} className="key blue">RESET</li>
               <li onClick={equal} className="key red">=</li>
             </ul>
