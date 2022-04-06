@@ -2,19 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
+  background-color: #334770;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +14,133 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.calculator{
+  width: 80%;
+  max-width: 500px;
+
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1{
+  font-size: 1.6rem;
+
+  margin-bottom: 15px;
 }
+.screen{
+  background-color: #1e2a45;
+
+
+  height: 100px;
+
+  border-radius: 7px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: center;
+}
+
+.number{
+  text-align: right;
+
+  padding-right: 50px;
+}
+
+.one{
+  font-size: 2rem;
+}
+
+.two{
+  font-size: .8rem;
+}
+
+.touches{
+  height: 400px;
+  background-color: #26365a;
+
+  border-radius: 7px;
+
+  margin-top: 20px;
+}
+
+
+
+
+
+
+.board{
+  height: 100%;
+
+  padding: 20px 60px;
+
+}
+
+ul{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  list-style: none;
+
+  height: 100%;
+}
+
+.key{
+  background-color: rgb(227, 227, 227);
+
+  border-radius: 5px;
+  margin: 7px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: rgb(98, 98, 98);
+  font-weight: bolder;
+
+  cursor: pointer;
+}
+
+.key:hover{
+  background-color: rgb(188, 188, 188);
+}
+
+.blue{
+  background-color: #47649e;
+  color: rgb(231, 231, 231);
+
+  font-size: 1rem;
+}
+.blue:hover{
+  background-color: #3d578a;
+}
+
+.red{
+  background-color: #dc2626;
+  color: rgb(231, 231, 231);
+}
+.red:hover{
+  background-color: #c62121;
+}
+
+.key:first-child { grid-area: 1 / 1 / 2 / 2; }
+.key:nth-child(2) { grid-area: 1 / 2 / 2 / 3; }
+.key:nth-child(3) { grid-area: 1 / 3 / 2 / 4; }
+.key:nth-child(4) { grid-area: 1 / 4 / 2 / 5; }
+.key:nth-child(5) { grid-area: 2 / 1 / 3 / 2; }
+.key:nth-child(6) { grid-area: 2 / 2 / 3 / 3; }
+.key:nth-child(7) { grid-area: 2 / 3 / 3 / 4; }
+.key:nth-child(8) { grid-area: 2 / 4 / 3 / 5; }
+.key:nth-child(9) { grid-area: 3 / 1 / 4 / 2; }
+.key:nth-child(10) { grid-area: 3 / 2 / 4 / 3; }
+.key:nth-child(11) { grid-area: 3 / 3 / 4 / 4; }
+.key:nth-child(12) { grid-area: 3 / 4 / 4 / 5; }
+.key:nth-child(13) { grid-area: 4 / 1 / 5 / 2; }
+.key:nth-child(14) { grid-area: 4 / 2 / 5 / 3; }
+.key:nth-child(15) { grid-area: 4 / 3 / 5 / 4; }
+.key:nth-child(16) { grid-area: 4 / 4 / 5 / 5; }
+.key:nth-child(17) { grid-area: 5 / 1 / 6 / 3; }
+.key:nth-child(18) { grid-area: 5 / 3 / 6 / 5; }
+
